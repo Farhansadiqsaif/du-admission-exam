@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DU A Unit | Private Practice Portal</title>
+<style>
+:root{--navy:#102b50;--blue:#1d4f91;--pale:#eef4fb;--ink:#172438;--muted:#64748b;--line:#dce5ef;--green:#167447;--red:#b42318;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:var(--ink);font:15px/1.6 system-ui,"Noto Sans Bengali","Hind Siliguri",sans-serif}
+header{background:linear-gradient(110deg,#0c2342,#194b83);color:white;padding:22px max(18px,calc((100% - 1120px)/2))}
+header h1{font-size:23px;margin:0}header p{margin:3px 0 0;color:#dbeafe;font-size:13px}
+main{max-width:1120px;margin:25px auto;padding:0 16px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 28px #102b500c;margin-bottom:16px}
+h2{font-size:21px;margin:0 0 10px}h3{margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:12px}
+input,select{font:inherit;border:1px solid #cbd5e1;border-radius:9px;padding:11px;background:white;max-width:100%}input[type=text],input[type=password]{width:100%;max-width:440px;display:block;margin:7px 0 14px}
+button{font:600 14px system-ui;border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:white;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#e8eef7;color:#17385f}.danger{background:#a61b1b}.ghost{background:transparent;color:var(--blue);border:1px solid var(--line)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.stat,.examcard,.subject{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px}.examcard{display:flex;flex-direction:column;gap:8px}.examcard button{width:100%;margin-top:auto}.examcard strong{font-size:17px}.badge{display:inline-block;background:#e7effa;color:#174477;padding:3px 8px;border-radius:99px;font-size:11px;font-weight:700}
+.rulegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:9px;margin:14px 0}.stat b{display:block;font-size:22px}.subject label{display:flex;gap:8px;align-items:center;font-weight:650}.subject input{width:auto}
+.examtop{position:sticky;top:0;z-index:5;background:white;border:1px solid var(--line);border-radius:12px;padding:12px 15px;display:flex;justify-content:space-between;gap:12px;align-items:center;box-shadow:0 3px 14px #102b5012}.timer{font-size:23px;font-weight:800;color:var(--red);font-variant-numeric:tabular-nums}.progress{height:8px;background:#e5eaf1;border-radius:8px;overflow:hidden;margin:12px 0}.progress div{height:100%;width:0;background:#2870bd;transition:width .2s}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:14px}.qcard{background:white;border:1px solid var(--line);border-radius:12px;padding:17px;margin:12px 0}.qmeta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.question{font-weight:700;margin:9px 0 13px}.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}.opt{display:flex;gap:9px;padding:10px;border:1px solid var(--line);border-radius:9px;cursor:pointer}.opt:has(input:checked){border-color:#3275bf;background:#eff6ff}.opt input{margin:4px 0 0;accent-color:#1d4f91}
+.palette{position:sticky;top:92px;height:max-content}.palettegrid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.palettegrid button{padding:7px 0;background:#e9eef5;color:#23354d;font-size:12px}.palettegrid button.done{background:#1d5c9f;color:white}.palettegrid button.current{outline:2px solid #f59e0b}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}.score{background:#f8fafc;border:1px solid var(--line);border-radius:11px;padding:13px}.score b{display:block;font-size:24px}.reportq{border:1px solid var(--line);border-left:5px solid #94a3b8;border-radius:10px;padding:13px;margin:10px 0;break-inside:avoid}.reportq.correct{border-left-color:var(--green)}.reportq.wrong{border-left-color:var(--red)}.answerline{font-size:13px;margin:5px 0}.good{color:var(--green);font-weight:700}.bad{color:var(--red);font-weight:700}.hide{display:none!important}
+table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:9px;border-bottom:1px solid var(--line);font-size:13px}
+footer{max-width:1120px;margin:24px auto;padding:0 16px 25px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.palette{position:static;order:-1}.palettegrid{grid-template-columns:repeat(10,1fr)}.options{grid-template-columns:1fr}.examtop{align-items:flex-start}.panel{padding:16px}}
+@media print{body{background:white;font-size:10pt}header{background:white;color:#111;padding:0 0 10px;border-bottom:2px solid #333}header p{color:#333}main{margin:0;padding:0;max-width:none}.panel{box-shadow:none;border:0;padding:0}.no-print,footer{display:none!important}#result{display:block!important}.reportq{break-inside:avoid}.score{background:white}}
+</style></head>
+<body>
+<header><h1>ঢাকা বিশ্ববিদ্যালয় — ‘ক’ ইউনিট | Private Practice Portal</h1><p>২০টি স্বতন্ত্র মডেল পরীক্ষা · ৬০ MCQ · ৪৫ মিনিট · বিস্তারিত সমাধান</p></header>
+<main>
+<section id="login" class="panel">
+<h2>শিক্ষার্থী লগইন / নতুন প্রোফাইল</h2>
+<p class="muted">নিজস্ব Login ID তৈরি করুন। একই ব্রাউজারে পরে একই ID ও PIN দিয়ে প্রবেশ করলে আগের ফলাফল দেখা যাবে।</p>
+<label>Login ID / Username</label><input id="loginId" type="text" maxlength="32" autocomplete="username" placeholder="যেমন: student2026">
+<label>PIN (ঐচ্ছিক, ৪–১২ অক্ষর)</label><input id="pin" type="password" maxlength="12" autocomplete="current-password" placeholder="PIN না দিলেও চলবে">
+<label>নাম (ঐচ্ছিক)</label><input id="displayName" type="text" maxlength="60" placeholder="আপনার নাম">
+<div class="actions"><button id="loginBtn">প্রবেশ করুন / প্রোফাইল তৈরি</button></div>
+<p id="loginMsg" class="small muted" aria-live="polite"></p>
+<p class="small muted">গোপনীয়তার সীমা: এই সংস্করণে প্রোফাইল ও ফলাফল শুধু এই ব্রাউজারের localStorage-এ থাকে। এটি সার্ভার-ভিত্তিক অ্যাকাউন্ট নয়; একই ডিভাইসের অন্য ব্যবহারকারী ব্রাউজার ডেটা দেখতে বা মুছতে পারেন। PIN-ও প্রকৃত নিরাপত্তা/এনক্রিপশন নয়।</p>
+</section>
+<section id="dashboard" class="hide">
+<div class="panel">
+<div class="row" style="justify-content:space-between"><div><h2>পরীক্ষার ড্যাশবোর্ড</h2><div class="muted" id="welcomeUser"></div></div><button class="secondary" id="logoutBtn">লগআউট</button></div>
+<div class="rulegrid"><div class="stat"><span class="muted">মোট মডেল পরীক্ষা</span><b>২০</b></div><div class="stat"><span class="muted">প্রশ্ন / পূর্ণমান</span><b>৬০ / ৬০</b></div><div class="stat"><span class="muted">সময়</span><b>৪৫ মিনিট</b></div><div class="stat"><span class="muted">নেগেটিভ</span><b>−০.২৫</b></div></div>
+<h3>ঐচ্ছিক বিষয় নির্বাচন</h3><p class="muted small">Physics ও Chemistry বাধ্যতামূলক। বাকি চারটি থেকে যেকোনো ২টি বেছে নিন। প্রতিটি বিষয়ে ১৫টি প্রশ্ন থাকবে।</p>
+<div class="grid" id="electives">
+<div class="subject"><label><input type="checkbox" value="উচ্চতর গণিত"> উচ্চতর গণিত</label><span class="small muted">১৫ প্রশ্ন</span></div>
+<div class="subject"><label><input type="checkbox" value="জীববিজ্ঞান"> জীববিজ্ঞান</label><span class="small muted">১৫ প্রশ্ন</span></div>
+<div class="subject"><label><input type="checkbox" value="বাংলা"> বাংলা</label><span class="small muted">১৫ প্রশ্ন</span></div>
+<div class="subject"><label><input type="checkbox" value="ইংরেজি"> ইংরেজি</label><span class="small muted">১৫ প্রশ্ন</span></div>
+</div><p id="electiveHint" class="small muted">ঠিক ২টি বিষয় নির্বাচন করুন (০/২)।</p>
+</div>
+<div class="panel"><h3>২০টি মডেল পরীক্ষা</h3><div id="examGrid" class="grid"></div></div>
+<div class="panel"><h3>আপনার পরীক্ষার ইতিহাস</h3><div id="historyTable" class="muted small">এখনো কোনো পরীক্ষা দেওয়া হয়নি।</div><div class="actions"><button id="clearHistory" class="ghost">এই প্রোফাইলের ইতিহাস মুছুন</button></div></div>
+</section>
+<section id="exam" class="hide">
+<div class="examtop"><div><b id="examLabel"></b><div class="small muted"><span id="answered">০</span>/৬০ উত্তর দেওয়া</div></div><div style="text-align:right"><div class="small muted">সময় বাকি</div><div class="timer" id="timer">45:00</div></div></div>
+<div class="progress"><div id="progressFill"></div></div>
+<div class="layout"><div id="questions"></div><aside class="panel palette no-print"><b>প্রশ্ন নেভিগেশন</b><p class="small muted">নীল = উত্তর দেওয়া</p><div class="palettegrid" id="palette"></div><div class="actions"><button class="danger" id="submitBtn">পরীক্ষা জমা দিন</button></div></aside></div>
+</section>
+<section id="result" class="panel hide">
+<div class="no-print"><h2>ফলাফল ও বিস্তারিত সমাধান</h2><p id="resultMeta" class="muted small"></p><div class="scoregrid">
+<div class="score">সঠিক<b id="correctN">0</b></div><div class="score">ভুল<b id="wrongN">0</b></div><div class="score">ফাঁকা<b id="blankN">0</b></div><div class="score">চূড়ান্ত স্কোর<b id="finalN">0/60</b></div></div><p id="performance"></p>
+<div class="actions"><button id="printBtn">Print / Save as PDF</button><button id="dashboardBtn" class="secondary">ড্যাশবোর্ডে ফিরুন</button></div><p class="small muted">Print বাটনে ক্লিক করে Destination থেকে “Save as PDF” নির্বাচন করুন।</p></div>
+<div id="reportDetails"></div></section>
+</main><footer>এই HTML ফাইলটি অফলাইনেও চলবে। ডেটা একই ব্রাউজারের localStorage-এ সংরক্ষিত হয়। পরীক্ষার প্রশ্নগুলো নতুনভাবে তৈরি করা DU-ধাঁচের অনুশীলনী; এগুলো DU-এর যাচাইকৃত হুবহু বিগত বছরের প্রশ্ন নয়।</footer>
+<script>
+"use strict";
+const $=id=>document.getElementById(id), bn=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]), STORE="dua_private_portal_v2";
+let userKey="",profile=null,examQuestions=[],answers={},examNo=0,selectedSubjects=[],deadline=0,ticker=null,finished=false;
+const subjects=["পদার্থবিজ্ঞান","রসায়ন","উচ্চতর গণিত","জীববিজ্ঞান","বাংলা","ইংরেজি"], electives=subjects.slice(2);
+const readStore=()=>{try{return JSON.parse(localStorage.getItem(STORE)||"{}")}catch(e){return {}}};
+const writeStore=o=>{try{localStorage.setItem(STORE,JSON.stringify(o));return true}catch(e){alert("Browser storage পূর্ণ বা বন্ধ। ফলাফল সংরক্ষণ করা যায়নি।");return false}};
+const norm=s=>String(s||"").trim().toLowerCase().replace(/\s+/g," ");
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function login(){
+ const id=norm($("loginId").value),pin=$("pin").value,store=readStore();
+ if(!/^[a-z0-9._-]{3,32}$/.test(id)){ $("loginMsg").textContent="Login ID ৩–৩২ অক্ষরের হতে হবে; ইংরেজি অক্ষর, সংখ্যা, dot, _ বা - ব্যবহার করুন।";return}
+ let p=store[id];
+ if(p){if((p.pin||"")!==pin){$("loginMsg").textContent="এই Login ID-এর PIN সঠিক নয়।";return}}
+ else{p={pin,displayName:$("displayName").value.trim()||id,history:[],createdAt:new Date().toISOString()};store[id]=p;writeStore(store)}
+ userKey=id;profile=p;showDashboard();
+}
+function showDashboard(){
+ $("login").classList.add("hide");$("exam").classList.add("hide");$("result").classList.add("hide");$("dashboard").classList.remove("hide");
+ $("welcomeUser").textContent="স্বাগতম, "+(profile.displayName||userKey)+" · Login ID: "+userKey;
+ document.querySelectorAll(".elective").forEach(x=>x.checked=false);renderDashboard();
+}
+function renderDashboard(){
+ const chosen=[...document.querySelectorAll("#electives input:checked")].map(x=>x.value);
+ if(chosen.length>2){document.querySelectorAll("#electives input:checked").item(2).checked=false}
+ const now=[...document.querySelectorAll("#electives input:checked")].map(x=>x.value);
+ $("electiveHint").textContent="ঠিক ২টি বিষয় নির্বাচন করুন ("+bn(now.length)+"/২)।";
+ $("examGrid").innerHTML=Array.from({length:20},(_,i)=>{let attempts=(profile.history||[]).filter(x=>x.examNo===i+1),best=attempts.length?Math.max(...attempts.map(x=>x.score)).toFixed(2):"—";
+ return `<article class="examcard"><div><span class="badge">EXAM ${i+1}</span></div><strong>মডেল পরীক্ষা ${bn(i+1)}</strong><span class="small muted">৬০ প্রশ্ন · ৪৫ মিনিট</span><span class="small">প্রচেষ্টা: ${bn(attempts.length)} · সেরা: ${best}</span><button data-exam="${i+1}" ${now.length!==2?"disabled":""}>পরীক্ষা শুরু</button></article>`}).join("");
+ $("examGrid").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>startExam(Number(b.dataset.exam))));
+ renderHistory();
+}
+function renderHistory(){
+ let h=[...(profile.history||[])].reverse().slice(0,30);
+ $("historyTable").innerHTML=h.length?`<table><thead><tr><th>পরীক্ষা</th><th>স্কোর</th><th>সঠিক</th><th>ভুল</th><th>তারিখ</th></tr></thead><tbody>${h.map(x=>`<tr><td>Exam ${x.examNo}</td><td>${x.score.toFixed(2)}/60</td><td>${x.correct}</td><td>${x.wrong}</td><td>${new Date(x.at).toLocaleString()}</td></tr>`).join("")}</tbody></table>`:"এখনো কোনো পরীক্ষা দেওয়া হয়নি।";
+}
+function shuffle(a,seed){let x=[...a],s=seed>>>0;for(let i=x.length-1;i>0;i--){s=(s*1664525+1013904223)>>>0;let j=s%(i+1);[x[i],x[j]]=[x[j],x[i]]}return x}
+function mcq(s,q,opts,a,e){return {s,q,o:opts,a,e}}
+function makeQuestion(s,exam,i){
+ const n=exam*17+i*7+3, v=(n%13)+2, w=(n%9)+3, z=(n%5)+2;
+ if(s==="পদার্থবিজ্ঞান"){
+ const bank=[
+ ()=>{let m=v,F=m*w;return mcq(s,`${m} kg ভরের বস্তুর ওপর ${F} N বল প্রয়োগ করলে ত্বরণ কত?`,[`${w} m/s²`,`${m} m/s²`,`${F} m/s²`,`${(F+m)} m/s²`],0,`নিউটনের দ্বিতীয় সূত্র F=ma। অতএব a=F/m=${F}/${m}=${w} m/s²।`)},
+ ()=>{let u=v,t=w,a=z,ans=u+a*t;return mcq(s,`একটি কণার আদিবেগ ${u} m/s এবং ত্বরণ ${a} m/s²। ${t} s পরে বেগ কত?`,[`${ans} m/s`,`${u+a} m/s`,`${u*t} m/s`,`${ans+a} m/s`],0,`v=u+at। মান বসালে v=${u}+(${a}×${t})=${ans} m/s।`)},
+ ()=>{let R1=v,R2=w,ans=+(R1*R2/(R1+R2)).toFixed(2);return mcq(s,`${R1} Ω ও ${R2} Ω রোধ সমান্তরালে যুক্ত। তুল্য রোধ প্রায় কত?`,[`${ans} Ω`,`${R1+R2} Ω`,`${Math.abs(R1-R2)} Ω`,`${(R1*R2).toFixed(0)} Ω`],0,`সমান্তরালে 1/R=1/R₁+1/R₂। তাই R=R₁R₂/(R₁+R₂)=${ans} Ω।`)},
+ ()=>{let f=+(v/100).toFixed(2),P=+(1/f).toFixed(2);return mcq(s,`একটি উত্তল লেন্সের ফোকাস দূরত্ব ${v} cm হলে ক্ষমতা কত?`,[`+${P} D`,`−${P} D`,`+${f} D`,`−${f} D`],0,`P=1/f (মিটারে)। f=${v}/100=${f} m; P=1/${f}=+${P} D।`)},
+ ()=>{let d=v*10,t=w,ans=d/t;return mcq(s,`একটি তরঙ্গ ${d} m দূরত্ব অতিক্রম করে ${t} s-এ। বেগ কত?`,[`${ans.toFixed(2)} m/s`,`${(d*t).toFixed(0)} m/s`,`${(t/d).toFixed(2)} m/s`,`${d+t} m/s`],0,`তরঙ্গের বেগ v=দূরত্ব/সময়=${d}/${t}=${ans.toFixed(2)} m/s।`)},
+ ()=>{let m=v,k=w,ratio=Math.sqrt(m/k);return mcq(s,`স্প্রিং-ভর ব্যবস্থায় ভর ${m} kg ও স্প্রিং ধ্রুবক ${k} N/m। কৌণিক কম্পাঙ্ক ω কত?`,[`√(${k}/${m}) rad/s`,`√(${m}/${k}) rad/s`,`${m*k} rad/s`,`${m+k} rad/s`],0,`ω=√(k/m)=√(${k}/${m}) rad/s।`)},
+ ()=>{let P=v*10,t=w,E=P*t;return mcq(s,`${P} W ক্ষমতার যন্ত্র ${t} s চললে কাজ/শক্তি কত?`,[`${E} J`,`${P/t} J`,`${P+t} J`,`${(P*t*2)} J`],0,`ক্ষমতা P=W/t। তাই W=Pt=${P}×${t}=${E} J।`)},
+ ()=>{let V=v,C=w*10,E=.5*C*1e-6*V*V;return mcq(s,`${C} μF ধারককে ${V} V বিভবে চার্জ করলে সঞ্চিত শক্তি কত?`,[`${(E*1e3).toFixed(3)} mJ`,`${(C*V).toFixed(0)} μJ`,`${(C*V*V).toFixed(0)} μJ`,`${(E*1e6).toFixed(1)} J`],0,`U=½CV²=½×${C}×10⁻⁶×${V}²=${(E*1e3).toFixed(3)} mJ।`)},
+ ()=>{let N=v,t=w,remain=100*Math.pow(2,-t/2);return mcq(s,`একটি তেজস্ক্রিয় নমুনার অর্ধায়ু ২ দিন। ${t} দিন পর প্রাথমিক পরিমাণের কত শতাংশ থাকবে?`,[`${remain.toFixed(2)}%`,` ${(100-remain).toFixed(2)}%`,` ${(remain/2).toFixed(2)}%`,`৫০%`],0,`অবশিষ্ট ভগ্নাংশ N/N₀=(1/2)^(t/T₁/₂)। তাই 100×(1/2)^(${t}/2)=${remain.toFixed(2)}%।`)},
+ ()=>{let m=v*1e-27,vel=w*1e5,p=m*vel;return mcq(s,`ভর ${m.toExponential(1)} kg ও বেগ ${vel.toExponential(1)} m/s হলে ভরবেগ কত?`,[`${p.toExponential(2)} kg·m/s`,`${(m/vel).toExponential(2)} kg·m/s`,`${(m+vel).toExponential(2)} kg·m/s`,`শূন্য`],0,`ভরবেগ p=mv। প্রদত্ত মান গুণ করলে ${p.toExponential(2)} kg·m/s।`)},
+ ()=>{let r=v,t=w,ans=2*Math.PI*Math.sqrt(r/9.8);return mcq(s,`সরল দোলকের দৈর্ঘ্য ${r} m হলে g=9.8 m/s²-এ দোলনকাল প্রায় কত?`,[`${ans.toFixed(2)} s`,`${(Math.PI*Math.sqrt(r/9.8)).toFixed(2)} s`,`${(2*Math.PI*r/9.8).toFixed(2)} s`,`${(r/9.8).toFixed(2)} s`],0,`T=2π√(l/g)=2π√(${r}/9.8)=${ans.toFixed(2)} s।`)},
+ ()=>{let A=v*10,alpha=1e-5,dt=w*10,dl=A*alpha*dt;return mcq(s,`দৈর্ঘ্য ${A} m ধাতব দণ্ডের α=10⁻⁵ K⁻¹। তাপমাত্রা ${dt} K বাড়লে দৈর্ঘ্য বৃদ্ধি কত?`,[`${(dl*1000).toFixed(2)} mm`,`${(A*dt).toFixed(1)} m`,`${(dl*100).toFixed(2)} cm`,`${(dl/1000).toFixed(5)} mm`],0,`ΔL=αLΔT=10⁻⁵×${A}×${dt}=${dl} m=${(dl*1000).toFixed(2)} mm।`)},
+ ()=>{let rho=v*100,h=w, p=rho*9.8*h;return mcq(s,`ঘনত্ব ${rho} kg/m³ তরলে ${h} m গভীরে চাপ (g=9.8) কত?`,[`${(p/1000).toFixed(2)} kPa`,`${(rho*h).toFixed(0)} Pa`,`${(p*1000).toFixed(0)} Pa`,`${(p/100).toFixed(0)} Pa`],0,`তরলচাপ P=ρgh=${rho}×9.8×${h}=${p} Pa=${(p/1000).toFixed(2)} kPa।`)},
+ ()=>{let q=v*1e-6,vel=w*1e5,B=z*.1,F=q*vel*B;return mcq(s,`একটি ${q.toExponential(1)} C চার্জ ${vel.toExponential(1)} m/s বেগে ${B} T চৌম্বক ক্ষেত্রের লম্বভাবে চললে বল কত?`,[`${F.toExponential(2)} N`,`${(q*B).toExponential(2)} N`,`${(vel*B).toExponential(2)} N`,`০ N`],0,`চৌম্বক বল F=qvB sinθ। লম্ব গতিতে θ=90°, তাই F=${q.toExponential(1)}×${vel.toExponential(1)}×${B}=${F.toExponential(2)} N।`)}
+ ];return bank[i%bank.length]();
+ }
+ if(s==="রসায়ন"){
+ const bank=[
+ ()=>{let m=v,c=w,vol=z,ans=m*1000/(c*vol);return mcq(s,`${m} mol দ্রব ${vol} L দ্রবণে থাকলে মোলারিটি কত?`,[`${(m/vol).toFixed(2)} M`,`${(m*vol).toFixed(2)} M`,`${(vol/m).toFixed(2)} M`,`${(m*1000/vol).toFixed(2)} M`],0,`মোলারিটি M=n/V=${m}/${vol}=${(m/vol).toFixed(2)} mol L⁻¹।`)},
+ ()=>{let p=v%5+1,H=Math.pow(10,-p);return mcq(s,`২৫°C-এ কোনো শক্তিশালী একমাত্রিক অ্যাসিডের pH=${p} হলে [H⁺] কত?`,[`10⁻${p} mol L⁻¹`,`10${p} mol L⁻¹`,` ${p} mol L⁻¹`,`10⁻${14-p} mol L⁻¹`],0,`pH=−log[H⁺]। তাই [H⁺]=10⁻pH=10⁻${p} mol L⁻¹।`)},
+ ()=>{let a=v,b=w,c=z,ans=a*b/c;return mcq(s,`${a} mol H₂ ও ${b} mol O₂ বিক্রিয়ায় 2H₂+O₂→2H₂O। পানি সর্বোচ্চ কত mol হবে?`,[`${2*Math.min(a/2,b)} mol`,`${Math.min(a,b)} mol`,`${a+b} mol`,`${c} mol`],0,`সমীকরণে 2 mol H₂ থেকে 2 mol H₂O; O₂-এর জন্য H₂/2 ও O₂ তুলনা করতে হয়। সীমাবদ্ধ বিকারক অনুযায়ী উৎপাদ ${2*Math.min(a/2,b)} mol।`)},
+ ()=>{let T=v+273,P=w,V=z;return mcq(s,`আদর্শ গ্যাসের P=${P} atm, V=${V} L ও T=${T} K। PV=nRT হলে R=0.082 ব্যবহার করে n প্রায় কত?`,[`${(P*V/(.082*T)).toFixed(3)} mol`,`${(P*V*.082/T).toFixed(3)} mol`,`${(T/(P*V)).toFixed(3)} mol`,`${(P+V+T).toFixed(2)} mol`],0,`n=PV/RT=${P}×${V}/(0.082×${T})=${(P*V/(.082*T)).toFixed(3)} mol।`)},
+ ()=>mcq(s,`কেন্দ্রীয় পরমাণুর চারটি σ-বন্ধন ও কোনো lone pair না থাকলে আদর্শ সংকরায়ন ও আকৃতি কোনটি?`,["sp³, চতুস্তলকীয়","sp², ত্রিকোণ সমতল","sp, সরলরৈখিক","dsp², বর্গাকার সমতল"],0,`চারটি ইলেকট্রন-জ্যামিতিক অঞ্চল (চার σ-বন্ধন) হলে sp³ সংকরায়ন এবং tetrahedral আকৃতি হয়।`),
+ ()=>mcq(s,`উষ্মাক্ষেপী বিক্রিয়ার জন্য সঠিক বক্তব্য কোনটি?`,["ΔH ধনাত্মক","ΔH ঋণাত্মক","তাপ শোষিত হয়","উৎপাদের এনথালপি বেশি"],1,`উষ্মাক্ষেপী বিক্রিয়ায় তাপ পরিবেশে নির্গত হয়; তাই ΔH=Hউৎপাদ−Hবিক্রিয়ক ঋণাত্মক।`),
+ ()=>mcq(s,`Le Chatelier-এর নীতি অনুযায়ী সাম্যাবস্থায় চাপ বাড়ালে গ্যাসীয় বিক্রিয়া কোন দিকে সরে?`,["বেশি গ্যাসীয় মোলের দিকে","কম গ্যাসীয় মোলের দিকে","সবসময় উৎপাদের দিকে","কোনো পরিবর্তন হয় না"],1,`চাপ বাড়ালে সাম্য কম গ্যাসীয় মোলবিশিষ্ট দিককে অনুকূল করে।`),
+ ()=>mcq(s,`প্রাথমিক অ্যালকোহলকে নিয়ন্ত্রিত জারণ করলে প্রথমে সাধারণত কী উৎপন্ন হয়?`,["অ্যালডিহাইড","কিটোন","ইথার","অ্যালকেন"],0,`প্রাথমিক অ্যালকোহল [O] দ্বারা জারিত হয়ে অ্যালডিহাইড দেয়; আরও জারণে কার্বক্সিলিক অ্যাসিড হতে পারে।`),
+ ()=>mcq(s,`পর্যায় সারণিতে একই পর্যায়ে বাম থেকে ডানে গেলে সাধারণত আয়নীকরণ শক্তি কীভাবে বদলায়?`,["কমে","বাড়ে","অপরিবর্তিত","শূন্য হয়"],1,`কার্যকর নিউক্লীয় আধান বাড়ায় ইলেকট্রন অপসারণ কঠিন হয়; সাধারণ প্রবণতায় আয়নীকরণ শক্তি বাড়ে।`),
+ ()=>mcq(s,`গলিত NaCl-এর তড়িৎ বিশ্লেষণে ক্যাথোডে কোন পদার্থ উৎপন্ন হয়?`,["Cl₂","Na","NaOH","H₂"],1,`ক্যাথোডে Na⁺ ইলেকট্রন গ্রহণ করে: Na⁺+e⁻→Na। অ্যানোডে Cl₂ হয়।`),
+ ()=>{let n=v%5+1;return mcq(s,`কোনো মৌলের পারমাণবিক সংখ্যা ${n*5} হলে নিরপেক্ষ পরমাণুতে ইলেকট্রনের সংখ্যা কত?`,[`${n*5}`,`${n*5+1}`,`${n*5-1}`,`${n*10}`],0,`নিরপেক্ষ পরমাণুতে প্রোটন সংখ্যা=ইলেকট্রন সংখ্যা=পারমাণবিক সংখ্যা=${n*5}।`)},
+ ()=>mcq(s,`ইথিনে C=C দ্বিবন্ধনে σ ও π বন্ধনের সংখ্যা কত?`,["১টি σ ও ১টি π","২টি σ","২টি π","১টি σ ও ২টি π"],0,`দ্বিবন্ধন একটি head-on overlap σ এবং একটি পাশ্বীয় overlap π বন্ধন দিয়ে গঠিত।`),
+ ()=>mcq(s,`AgNO₃ দ্রবণে Cl⁻ আয়ন যোগ করলে কোন অধঃক্ষেপ তৈরি হয়?`,["AgCl, সাদা","Ag₂O, বাদামি","NaCl, সাদা","Ag, কালো"],0,`Ag⁺+Cl⁻→AgCl(s)। সিলভার ক্লোরাইড সাদা অধঃক্ষেপ।`),
+ ()=>mcq(s,`কোনো দ্রবণের pH ৪ থেকে ৩ হলে H⁺ ঘনমাত্রা কত গুণ হয়?`,["২","৫","১০","১০০"],2,`pH এক একক কমলে [H⁺] দশগুণ হয়, কারণ pH লগারিদমিক স্কেল।`),
+ ()=>mcq(s,`নিচের কোনটি জারক (oxidizing agent) হিসেবে কাজ করে?`,["যে নিজে বিজারিত হয়","যে নিজে জারিত হয়","যে ইলেকট্রন দান করে","যার জারণ সংখ্যা বাড়ে"],0,`জারক অন্য পদার্থকে জারিত করে এবং নিজে ইলেকট্রন গ্রহণ করে বিজারিত হয়।`)
+ ];return bank[i%bank.length]();
+ }
+ if(s==="উচ্চতর গণিত"){
+ const bank=[
+ ()=>{let a=v,b=w;return mcq(s,`f(x)=x²−${a*a} হলে f(x)=0 সমীকরণের মূল কোনটি?`,[`±${a}`,`${a*a}`,`±${a*a}`,`০ ও ${a}`],0,`x²−${a*a}=0 ⇒ (x−${a})(x+${a})=0। মূল x=±${a}।`)},
+ ()=>{let a=v,b=w;return mcq(s,`lim x→0 (sin ${a}x)/(${b}x) এর মান কত?`,[`${a}/${b}`,`${b}/${a}`,`০`,`১`],0,`sin(ax)/(bx)=(a/b)·sin(ax)/(ax)। x→0 হলে শেষ অনুপাত ১; সীমা a/b=${a}/${b}।`)},
+ ()=>{let a=v;return mcq(s,`y=x^${a} হলে dy/dx কত?`,[`${a}x^${a-1}`,`x^${a-1}`,`${a-1}x^${a}`,`${a}x^${a}`],0,`ঘাতের সূত্র d(xⁿ)/dx=nxⁿ⁻¹। তাই dy/dx=${a}x^${a-1}।`)},
+ ()=>{let a=v;return mcq(s,`∫ ${a}x^${a-1} dx এর মান কোনটি?`,[`x^${a}+C`,`${a}x^${a}+C`,`x^${a-1}+C`,`x^${a+1}+C`],0,`∫ax^(a−1)dx = a·x^a/a + C = x^a+C।`)},
+ ()=>{let a=v,b=w,c=a*3-b*2;return mcq(s,`ম্যাট্রিক্স [[${a},2],[${b},3]]-এর determinant কত?`,[`${c}`,`${a*3+b*2}`,`${a+b}`,`৬`],0,`২×২ determinant = ad−bc = ${a}×3−2×${b}=${c}।`)},
+ ()=>{let a=v;return mcq(s,`একটি বৃত্তের ব্যাসার্ধ ${a} একক হলে ক্ষেত্রফল কত?`,[`${a*a}π`,`${2*a}π`,`${a}π`,`π/${a}`],0,`ক্ষেত্রফল A=πr²=π×${a}²=${a*a}π বর্গ একক।`)},
+ ()=>{let a=v;return mcq(s,`log₁₀x=${a} হলে x কত?`,[`10^${a}`,`${a}^10`,`10${a}`,`${a*10}`],0,`লগের সংজ্ঞা অনুযায়ী log₁₀x=a ⇒ x=10^a=10^${a}।`)},
+ ()=>{let a=v,b=w;return mcq(s,`বিন্দু (${a},${b}) ও (0,0)-এর দূরত্ব কত?`,[`√(${a*a+b*b})`,`${a+b}`,`${a*b}`,`√(${a+b})`],0,`দূরত্ব d=√[(x₂−x₁)²+(y₂−y₁)²]=√(${a*a}+${b*b})।`)},
+ ()=>{let a=v;return mcq(s,`x²−${2*a}x+${a*a}=0 সমীকরণের বিচ্ছিন্নক (discriminant) কত?`,["০",`${a*a}`,`${4*a*a}`,`ঋণাত্মক`],0,`D=b²−4ac=(−${2*a})²−4×1×${a*a}=0। সমান দুটি বাস্তব মূল।`)},
+ ()=>{let a=v;return mcq(s,`sin²θ+cos²θ এর মান কত?`,["০","১","২","tan θ"],1,`পিথাগোরীয় ত্রিকোণমিতিক পরিচিতি: sin²θ+cos²θ=1।`)},
+ ()=>{let a=v,d=w;return mcq(s,`সমান্তর ধারা ${a}, ${a+d}, ${a+2*d}, ... এর ১০ম পদ কত?`,[`${a+9*d}`,`${a+10*d}`,`${a*d}`,`${a+9}`],0,`aₙ=a+(n−1)d। n=10 হলে a₁₀=${a}+9×${d}=${a+9*d}।`)},
+ ()=>{let a=v,b=w;return mcq(s,`একটি বাক্সে ${a}টি লাল ও ${b}টি নীল বল। দৈবচয়নে লাল বলের সম্ভাবনা কত?`,[`${a}/${a+b}`,`${b}/${a+b}`,`${a+b}/${a}`,`১/২`],0,`সম্ভাবনা=অনুকূল ফল/মোট ফল=${a}/(${a}+${b})=${a}/${a+b}।`)},
+ ()=>{let a=v;return mcq(s,`2×2 একক ম্যাট্রিক্সের determinant কত?`,["০","১","২","৪"],1,`একক ম্যাট্রিক্সের determinant সর্বদা ১।`)},
+ ()=>{let a=v;return mcq(s,`d/dx (e^(${a}x)) কত?`,[`${a}e^(${a}x)`,`e^(${a}x)`,`x e^(${a}x)`,`${a}x`],0,`চেইন রুলে d(e^(ax))/dx = a e^(ax)।`)},
+ ()=>{let a=v;return mcq(s,`যদি tan θ=1 এবং 0°<θ<90° হয়, তবে θ কত?`,["৩০°","৪৫°","৬০°","৯০°"],1,`tan 45°=1 এবং θ সূক্ষ্মকোণ; তাই θ=45°।`)}
+ ];return bank[i%bank.length]();
+ }
+ if(s==="জীববিজ্ঞান"){
+ const concepts=[
+ ["কোষের অধিকাংশ ATP উৎপাদনের প্রধান অঙ্গাণু কোনটি?",["মাইটোকন্ড্রিয়া","রাইবোসোম","গলজি বডি","লাইসোসোম"],0,"মাইটোকন্ড্রিয়ার অভ্যন্তরীণ ঝিল্লিতে oxidative phosphorylation-এর মাধ্যমে অধিকাংশ ATP উৎপন্ন হয়।"],
+ ["DNA-তে অ্যাডেনিনের পরিপূরক ক্ষারক কোনটি?",["থাইমিন","ইউরাসিল","গুয়ানিন","সাইটোসিন"],0,"DNA-তে A=T এবং G≡C; তাই অ্যাডেনিনের পরিপূরক থাইমিন।"],
+ ["ইনসুলিন অগ্ন্যাশয়ের কোন কোষ থেকে নিঃসৃত হয়?",["β-কোষ","α-কোষ","δ-কোষ","অ্যাসিনার কোষ"],0,"আইলেটস অব ল্যাঙ্গারহ্যান্সের β-কোষ ইনসুলিন নিঃসরণ করে।"],
+ ["উদ্ভিদে পানি ও খনিজ লবণ পরিবহন করে কোন টিস্যু?",["জাইলেম","ফ্লোয়েম","ক্যাম্বিয়াম","এপিডার্মিস"],0,"জাইলেম মূল থেকে পানি ও খনিজ লবণ ঊর্ধ্বমুখে পরিবহন করে।"],
+ ["মিয়োসিসে একটি ডিপ্লয়েড মাতৃকোষ থেকে সাধারণত কয়টি হ্যাপ্লয়েড কোষ হয়?",["৪","২","৩","৮"],0,"মিয়োসিস-I ও II-এর পর একটি মাতৃকোষ থেকে সাধারণত চারটি হ্যাপ্লয়েড কোষ তৈরি হয়।"],
+ ["আলোকসংশ্লেষণের আলোক-নির্ভর বিক্রিয়া কোথায় ঘটে?",["থাইলাকয়েড ঝিল্লি","স্ট্রোমা","সাইটোপ্লাজম","নিউক্লিয়াস"],0,"থাইলাকয়েড ঝিল্লিতে ফটোসিস্টেম, ইলেকট্রন পরিবহন ও ATP synthase থাকে।"],
+ ["মানবদেহে ইউরিয়া প্রধানত কোথায় তৈরি হয়?",["যকৃতে","বৃক্কে","ফুসফুসে","প্লীহায়"],0,"যকৃতের ornithine/urea cycle অ্যামোনিয়াকে ইউরিয়ায় রূপান্তর করে।"],
+ ["রক্ত জমাট বাঁধায় কোন উপাদানটি মুখ্য?",["অণুচক্রিকা","লোহিত কণিকা","শ্বেত কণিকা","অ্যালবুমিন"],0,"অণুচক্রিকা platelet plug তৈরি ও coagulation cascade-এ সহায়তা করে।"],
+ ["মেন্ডেলের এক-সংকর জননে F₂ ফিনোটাইপিক অনুপাত কত?",["৩:১","১:১","১:২:১","৯:৩:৩:১"],0,"সম্পূর্ণ প্রকটতায় F₂-তে ৩টি প্রকট : ১টি প্রচ্ছন্ন ফিনোটাইপ দেখা যায়।"],
+ ["প্রোটিন সংশ্লেষণের স্থান কোনটি?",["রাইবোসোম","লাইসোসোম","সেন্ট্রিওল","ভ্যাকুওল"],0,"রাইবোসোম mRNA অনুবাদ করে পলিপেপটাইড শৃঙ্খল তৈরি করে।"],
+ ["মানবদেহে গ্যাস বিনিময়ের প্রধান স্থান কোনটি?",["অ্যালভিওলাস","ট্রাকিয়া","ব্রঙ্কাস","প্লুরা"],0,"ফুসফুসের অ্যালভিওলাইয়ের পাতলা প্রাচীর দিয়ে O₂ ও CO₂ diffusion হয়।"],
+ ["কোন ভিটামিনের অভাবে রাতকানা রোগ হয়?",["ভিটামিন A","ভিটামিন C","ভিটামিন D","ভিটামিন K"],0,"রেটিনার rhodopsin গঠনে ভিটামিন A প্রয়োজন; ঘাটতিতে রাতকানা হতে পারে।"],
+ ["মানবদেহের বৃহত্তম গ্রন্থি কোনটি?",["যকৃত","অগ্ন্যাশয়","থাইরয়েড","পিটুইটারি"],0,"যকৃত মানবদেহের বৃহত্তম গ্রন্থি এবং বিপাক ও detoxification-এ গুরুত্বপূর্ণ।"],
+ ["কোন কোষ বিভাজনে ক্রোমোজোম সংখ্যা অপরিবর্তিত থাকে?",["মাইটোসিস","মিয়োসিস-I","মিয়োসিস-II","কোনোটিই নয়"],0,"মাইটোসিসে কন্যা কোষে মাতৃকোষের সমান ক্রোমোজোম সংখ্যা থাকে।"],
+ ["পরিবেশে শক্তির প্রধান প্রবেশপথ কোনটি?",["সূর্যালোক ও আলোকসংশ্লেষণ","মৃতজীবী","শিকার","পরজীবিতা"],0,"উৎপাদক সূর্যালোককে রাসায়নিক শক্তিতে রূপান্তর করে খাদ্যজালে শক্তি প্রবেশ করায়।"]
+ ];
+ let c=concepts[i%15];return mcq(s,`[মডেল ${exam} · ধারণা ${i+1}] ${c[0]}`,c[1],c[2],c[3]);
+ }
+ if(s==="বাংলা"){
+ const items=[
+ ["‘অরণ্যে রোদন’ বাগধারার অর্থ কী?",["নিষ্ফল আবেদন","বনে কান্না","গোপন দুঃখ","প্রকৃতির সৌন্দর্য"],0,"অরণ্যে রোদন অর্থ এমন আবেদন বা অভিযোগ যার কোনো ফল হয় না।"],
+ ["‘যে উপকারীর উপকার স্বীকার করে’—এক কথায় কী?",["কৃতজ্ঞ","কৃতঘ্ন","পরোপকারী","উদার"],0,"উপকারীর উপকার স্বীকার করে যে, সে কৃতজ্ঞ।"],
+ ["‘নীলকমল’ কোন সমাস?",["কর্মধারয়","দ্বন্দ্ব","বহুব্রীহি","অব্যয়ীভাব"],0,"নীল যে কমল—বিশেষণ ও বিশেষ্যের সমন্বয়ে কর্মধারয় সমাস।"],
+ ["‘অম্লান’ শব্দের বিপরীতার্থক কোনটি?",["মলিন","উজ্জ্বল","নির্মল","প্রসন্ন"],0,"অম্লান অর্থ মলিনতাহীন; বিপরীতার্থক মলিন।"],
+ ["‘অশ্রুতপূর্ব’ শব্দের অর্থ কী?",["যা আগে শোনা যায়নি","যা বলা যায় না","যা শোনা উচিত নয়","যা অস্পষ্ট"],0,"অশ্রুতপূর্ব অর্থ পূর্বে কখনো শোনা যায়নি এমন।"],
+ ["‘মহর্ষি’ শব্দের সন্ধিবিচ্ছেদ কোনটি?",["মহা+ঋষি","মহৎ+ঋষি","মহী+ঋষি","মহ+র্ষি"],0,"মহা+ঋষি মিলে মহর্ষি; স্বরসন্ধির নিয়মে আ+ঋ → অর্।"],
+ ["‘চোখের মণি’ বাগধারার অর্থ কী?",["অত্যন্ত প্রিয়","চোখের রোগ","অহংকারী","অপরিচিত"],0,"চোখের মণি বলতে অত্যন্ত আদরের বা প্রিয় ব্যক্তিকে বোঝায়।"],
+ ["‘গগন’ শব্দের সমার্থক কোনটি?",["আকাশ","পবন","পাহাড়","সমুদ্র"],0,"গগন শব্দের অর্থ আকাশ বা নভোমণ্ডল।"],
+ ["‘যিনি অল্প কথা বলেন’—এক কথায় কী?",["মিতভাষী","বাচাল","নির্বাক","বক্তা"],0,"যিনি পরিমিত কথা বলেন, তিনি মিতভাষী।"],
+ ["‘সুশিক্ষিত’ শব্দে উপসর্গ কোনটি?",["সু","শি","ক্ষিত","ইত"],0,"শিক্ষিত শব্দের আগে ‘সু’ উপসর্গ যুক্ত হয়ে সুশিক্ষিত হয়েছে।"],
+ ["‘দুর্লভ’ শব্দের বিপরীতার্থক কোনটি?",["সুলভ","দুষ্প্রাপ্য","বিরল","কঠিন"],0,"দুর্লভ অর্থ সহজে পাওয়া যায় না; বিপরীত সুলভ।"],
+ ["‘পঙ্কজ’ শব্দের ব্যাসবাক্য কী?",["পঙ্কে জন্মে যা","পঙ্কের মতো","পঙ্ক ও জল","পঙ্কহীন"],0,"পঙ্কে জন্মে যা—পঙ্কজ; এটি উপপদ তৎপুরুষ সমাসের উদাহরণ।"],
+ ["‘অগ্নি’ শব্দের তদ্ভব রূপ কোনটি?",["আগুন","অনল","হুতাশন","বহ্নি"],0,"সংস্কৃত অগ্নি থেকে প্রাকৃত/তদ্ভব রূপ আগুন।"],
+ ["‘রাজপুত্র’ কোন সমাস?",["ষষ্ঠী তৎপুরুষ","দ্বন্দ্ব","বহুব্রীহি","অব্যয়ীভাব"],0,"রাজার পুত্র—সম্বন্ধপদ লোপ পেয়েছে; ষষ্ঠী তৎপুরুষ সমাস।"],
+ ["‘নির্মল’ শব্দের সমার্থক কোনটি?",["বিশুদ্ধ","কলুষিত","মলিন","অশুদ্ধ"],0,"নির্মল অর্থ মলিনতাহীন বা বিশুদ্ধ।"]
+ ];
+ let c=items[i];return mcq(s,`[মডেল ${exam}] ${c[0]}`,c[1],c[2],c[3]);
+ }
+ if(s==="ইংরেজি"){
+ const items=[
+ ["Choose the grammatically correct sentence.",["She does not like tea.","She do not like tea.","She does not likes tea.","She did not likes tea."],0,"With does not, use the base form of the verb: does not + like."],
+ ["The closest meaning of “abundant” is —",["plentiful","scarce","fragile","ancient"],0,"Abundant means existing in large quantities; plentiful is its synonym."],
+ ["He is good ___ mathematics.",["at","in","on","for"],0,"The standard collocation is good at a subject or activity."],
+ ["Choose the passive form: “The committee approved the proposal.”",["The proposal was approved by the committee.","The proposal approved the committee.","The proposal is approving.","The committee was approved."],0,"Simple past active becomes was/were + past participle in passive voice."],
+ ["Choose the correct reported speech: He said, “I am tired.”",["He said that he was tired.","He said I am tired.","He says he had tired.","He told that tired."],0,"With a past reporting verb, am commonly backshifts to was; pronoun changes to he."],
+ ["Choose the correctly spelled word.",["Accommodation","Accomodation","Acommodation","Acomodation"],0,"Accommodation is spelled with double c and double m."],
+ ["He is ___ honest person.",["an","a","the","no article"],0,"Honest begins with a vowel sound because h is silent; use an."],
+ ["The plural of “criterion” is —",["criteria","criterions","criterias","criterionies"],0,"Criterion is singular; criteria is its Greek-derived plural."],
+ ["Neither of the candidates ___ qualified.",["is","are","were","have"],0,"Neither is treated as singular in standard formal agreement; use is."],
+ ["Choose the antonym of “expand”.",["contract","extend","enlarge","increase"],0,"Contract means to become smaller, the opposite of expand."],
+ ["If I ___ you, I would accept the offer.",["were","am","was","be"],0,"The subjunctive construction uses were for hypothetical situations."],
+ ["Choose the correct preposition: “She insisted ___ paying.”",["on","at","for","with"],0,"The verb insist is followed by on + gerund/noun."],
+ ["Identify the noun clause: “I know what he wants.”",["what he wants","I know","he wants","what"],0,"The clause what he wants functions as the object of know."],
+ ["Choose the correct conditional: If it rains, we ___ at home.",["will stay","would stayed","stayed","had stayed"],0,"First conditional: If + present simple, will + base verb."],
+ ["The synonym of “meticulous” is —",["careful","careless","hasty","vague"],0,"Meticulous means showing great attention to detail; careful is closest."]
+ ];
+ let c=items[i];return mcq(s,`[Model ${exam}] ${c[0]}`,c[1],c[2],c[3]);
+ }
+}
+function buildExam(no,opts){
+ let list=[];for(let s of ["পদার্থবিজ্ঞান","রসায়ন",...opts])for(let i=0;i<15;i++){let q=makeQuestion(s,no,i);list.push({...q,id:`${no}-${s}-${i}`,subjectIndex:i})}
+ // Seeded shuffle option order without changing the correct answer.
+ return list.map((q,idx)=>{let pairs=q.o.map((t,j)=>({t,j})),sh=shuffle(pairs,no*1009+idx*71+17);return {...q,opts:sh.map(x=>x.t),correct:sh.findIndex(x=>x.j===q.a)}});
+}
+function startExam(no){
+ const opts=[...document.querySelectorAll("#electives input:checked")].map(x=>x.value);if(opts.length!==2)return;
+ examNo=no;selectedSubjects=["পদার্থবিজ্ঞান","রসায়ন",...opts];examQuestions=buildExam(no,opts);answers={};finished=false;deadline=Date.now()+45*60*1000;
+ $("dashboard").classList.add("hide");$("result").classList.add("hide");$("exam").classList.remove("hide");$("examLabel").textContent=`মডেল পরীক্ষা ${bn(no)} · ${selectedSubjects.join(" / ")}`;
+ renderQuestions();renderPalette();updateProgress();tick();ticker=setInterval(tick,500);window.scrollTo(0,0);
+}
+function renderQuestions(){
+ $("questions").innerHTML=examQuestions.map((q,i)=>`<article class="qcard" id="q${i}"><div class="qmeta"><span>প্রশ্ন ${bn(i+1)} · ${q.s}</span><span>১ নম্বর</span></div><p class="question">${q.q}</p><div class="options">${q.opts.map((op,j)=>`<label class="opt"><input type="radio" name="q${i}" value="${j}" ${answers[i]===j?"checked":""}><span>${"কখগঘ"[j]}. ${esc(op)}</span></label>`).join("")}</div></article>`).join("");
+ $("questions").querySelectorAll("input").forEach(el=>el.addEventListener("change",e=>{let i=Number(e.target.name.slice(1));answers[i]=Number(e.target.value);updateProgress();renderPalette()}));
+}
+function renderPalette(){$("palette").innerHTML=examQuestions.map((q,i)=>`<button class="${answers[i]!==undefined?"done":""}" data-q="${i}">${bn(i+1)}</button>`).join("");$("palette").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{let el=$("q"+b.dataset.q);el.scrollIntoView({behavior:"smooth",block:"center"})}))}
+function updateProgress(){let n=Object.keys(answers).length;$("answered").textContent=bn(n);$("progressFill").style.width=(n/60*100)+"%"}
+function tick(){if(finished)return;let left=Math.max(0,Math.ceil((deadline-Date.now())/1000));$("timer").textContent=String(Math.floor(left/60)).padStart(2,"0")+":"+String(left%60).padStart(2,"0");if(left<=0)submit(true)}
+function submit(auto=false){
+ if(finished)return;if(!auto&&!confirm("আপনি কি পরীক্ষা জমা দিতে চান?"))return;finished=true;clearInterval(ticker);
+ let correct=0,wrong=0,blank=0;examQuestions.forEach((q,i)=>{if(answers[i]===undefined)blank++;else if(answers[i]===q.correct)correct++;else wrong++});
+ let score=correct-wrong*.25,attempt={examNo,correct,wrong,blank,score,at:new Date().toISOString(),subjects:selectedSubjects};
+ profile.history=profile.history||[];profile.history.push(attempt);let store=readStore();store[userKey]=profile;writeStore(store);
+ $("exam").classList.add("hide");$("result").classList.remove("hide");$("correctN").textContent=bn(correct);$("wrongN").textContent=bn(wrong);$("blankN").textContent=bn(blank);$("finalN").textContent=score.toFixed(2)+"/60";
+ $("resultMeta").textContent=`${profile.displayName} · Login ID: ${userKey} · Exam ${examNo} · ${selectedSubjects.join(", ")} · ${new Date().toLocaleString()}${auto?" · সময় শেষ হওয়ায় স্বয়ংক্রিয় জমা":""}`;
+ $("performance").textContent=score>=48?"অসাধারণ ফলাফল।":score>=36?"ভালো প্রস্তুতি; ভুলগুলো পুনরায় দেখুন।":score>=24?"আরও অনুশীলন প্রয়োজন।":"মৌলিক ধারণাগুলো আবার পড়ুন এবং নিয়মিত অনুশীলন করুন।";
+ $("reportDetails").innerHTML="<h2>বিস্তারিত উত্তর ও ব্যাখ্যা</h2>"+examQuestions.map((q,i)=>{let a=answers[i],ok=a===q.correct,empty=a===undefined;return `<article class="reportq ${empty?"":ok?"correct":"wrong"}"><b>${bn(i+1)}. ${q.q}</b><div class="answerline">আপনার উত্তর: <span class="${ok?"good":empty?"":"bad"}">${empty?"উত্তর দেওয়া হয়নি":esc(q.opts[a])}</span> · ${empty?"ফাঁকা":ok?"সঠিক":"ভুল"}</div><div class="answerline">সঠিক উত্তর: <span class="good">${"কখগঘ"[q.correct]}. ${esc(q.opts[q.correct])}</span></div><div class="answerline"><b>ব্যাখ্যা:</b> ${q.e}</div></article>`}).join("");
+ window.scrollTo(0,0);
+}
+$("loginBtn").addEventListener("click",login);$("loginId").addEventListener("keydown",e=>{if(e.key==="Enter")login()});
+document.querySelectorAll("#electives input").forEach(x=>x.addEventListener("change",renderDashboard));
+$("logoutBtn").addEventListener("click",()=>{if(!finished&&ticker)clearInterval(ticker);userKey="";profile=null;$("dashboard").classList.add("hide");$("login").classList.remove("hide");$("pin").value="";});
+$("submitBtn").addEventListener("click",()=>submit(false));$("printBtn").addEventListener("click",()=>window.print());
+$("dashboardBtn").addEventListener("click",()=>{ $("result").classList.add("hide");showDashboard()});
+$("clearHistory").addEventListener("click",()=>{if(confirm("এই Login ID-এর সব পরীক্ষার ইতিহাস মুছে ফেলবেন?")){profile.history=[];let s=readStore();s[userKey]=profile;writeStore(s);renderHistory();renderDashboard()}});
+</script></body></html>
